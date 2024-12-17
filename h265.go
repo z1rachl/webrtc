@@ -19,7 +19,7 @@ const (
 	spsNALUType = 33
 	ppsNALUType = 34
 
-	fuaHeaderSize       = 2
+	fuaHeaderSize       = 3
 	stapaHeaderSize     = 1
 	stapaNALULengthSize = 2
 
@@ -73,9 +73,6 @@ func (p *H265Payloader) Payload(mtu uint16, payload []byte) [][]byte {
 		}
 
 		naluType := (nalu[0] >> 1) & 0x3f
-		naluRefIdc := nalu[0] & naluRefIdcBitmask
-
-		println(naluType)
 
 		switch {
 		case naluType == vpsNALUType:
@@ -115,7 +112,6 @@ func (p *H265Payloader) Payload(mtu uint16, payload []byte) [][]byte {
 			p.ppsNalu = nil
 			p.vpsNalu = nil
 		}
-
 		println(len(nalu), mtu)
 
 		// Single NALU
@@ -153,27 +149,14 @@ func (p *H265Payloader) Payload(mtu uint16, payload []byte) [][]byte {
 			currentFragmentSize := min(maxFragmentSize, naluRemaining)
 			out := make([]byte, fuaHeaderSize+currentFragmentSize)
 
-			// +---------------+
-			// |0|1|2|3|4|5|6|7|
-			// +-+-+-+-+-+-+-+-+
-			// |F|NRI|  Type   |
-			// +---------------+
-			out[0] = fuaNALUType
-			out[0] |= naluRefIdc
+			out[0] = fuaNALUType >> 1
+			out[1] = nalu[1]
+			out[2] = naluType
 
-			// +---------------+
-			// |0|1|2|3|4|5|6|7|
-			// +-+-+-+-+-+-+-+-+
-			// |S|E|R|  Type   |
-			// +---------------+
-
-			out[1] = naluType
 			if naluRemaining == naluLength {
-				// Set start bit
-				out[1] |= 1 << 7
+				out[2] |= 1 << 7
 			} else if naluRemaining-currentFragmentSize == 0 {
-				// Set end bit
-				out[1] |= 1 << 6
+				out[2] |= 1 << 6
 			}
 
 			copy(out[fuaHeaderSize:], nalu[naluIndex:naluIndex+currentFragmentSize])
