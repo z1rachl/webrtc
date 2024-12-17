@@ -12,7 +12,7 @@ import (
 
 	"github.com/pion/rtp"
 	"github.com/stretchr/testify/assert"
-	"github.com/z1rachl/webrtc/v4/pkg/media"
+	"gitlab.cubicmedia.cloud/cubic-ai/CA/webrtc/v4/pkg/media"
 )
 
 type sampleBuilderTest struct {

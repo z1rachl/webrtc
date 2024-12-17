@@ -17,7 +17,7 @@ ffmpeg -i $INPUT_FILE -g 30 -b:v 2M output.ivf
 
 ### Download ortc-media
 ```
-go install github.com/z1rachl/webrtc/v4/examples/ortc-media@latest
+go install gitlab.cubicmedia.cloud/cubic-ai/CA/webrtc/v4/examples/ortc-media@latest
 ```
 
 ### Run first client as offerer

@@ -10,7 +10,7 @@ You can then send this video back to your browser using [play-from-disk](https:/
 ## Instructions
 ### Download save-to-disk-av1
 ```
-go install github.com/z1rachl/webrtc/v4/examples/save-to-disk-av1@latest
+go install gitlab.cubicmedia.cloud/cubic-ai/CA/webrtc/v4/examples/save-to-disk-av1@latest
 ```
 
 ### Open save-to-disk-av1 example page

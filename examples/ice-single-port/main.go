@@ -14,7 +14,7 @@ import (
 	"time"
 
 	"github.com/pion/ice/v4"
-	"github.com/z1rachl/webrtc/v4"
+	"gitlab.cubicmedia.cloud/cubic-ai/CA/webrtc/v4"
 )
 
 var api *webrtc.API //nolint

@@ -14,7 +14,7 @@ ffmpeg -i $INPUT_FILE -g 30 output.ivf
 
 ### Download insertable-streams
 ```
-go install github.com/z1rachl/webrtc/v4/examples/insertable-streams@latest
+go install gitlab.cubicmedia.cloud/cubic-ai/CA/webrtc/v4/examples/insertable-streams@latest
 ```
 
 ### Open insertable-streams example page

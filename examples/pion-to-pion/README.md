@@ -7,12 +7,12 @@ The `answer` side acts like a HTTP server and should therefore be ran first.
 ## Instructions
 First run `answer`:
 ```sh
-go install github.com/z1rachl/webrtc/v4/examples/pion-to-pion/answer
+go install gitlab.cubicmedia.cloud/cubic-ai/CA/webrtc/v4/examples/pion-to-pion/answer
 answer
 ```
 Next, run `offer`:
 ```sh
-go install github.com/z1rachl/webrtc/v4/examples/pion-to-pion/offer
+go install gitlab.cubicmedia.cloud/cubic-ai/CA/webrtc/v4/examples/pion-to-pion/offer
 offer
 ```
 

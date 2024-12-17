@@ -4,7 +4,7 @@ data-channels is a Pion WebRTC application that shows how you can send/recv Data
 ## Instructions
 ### Download data-channels
 ```
-go install github.com/z1rachl/webrtc/v4/examples/data-channels@latest
+go install gitlab.cubicmedia.cloud/cubic-ai/CA/webrtc/v4/examples/data-channels@latest
 ```
 
 ### Open data-channels example page

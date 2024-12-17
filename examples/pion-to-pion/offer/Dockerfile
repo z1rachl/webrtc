@@ -3,6 +3,6 @@
 
 FROM golang:1.23
 
-RUN go install github.com/z1rachl/webrtc/v4/examples/pion-to-pion/offer@latest
+RUN go install gitlab.cubicmedia.cloud/cubic-ai/CA/webrtc/v4/examples/pion-to-pion/offer@latest
 
 CMD ["offer"]

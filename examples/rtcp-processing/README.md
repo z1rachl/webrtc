@@ -11,7 +11,7 @@ also craft messages to influence the media quality.
 ## Instructions
 ### Download rtcp-processing
 ```
-go install github.com/z1rachl/webrtc/v4/examples/rtcp-processing@latest
+go install gitlab.cubicmedia.cloud/cubic-ai/CA/webrtc/v4/examples/rtcp-processing@latest
 ```
 
 ### Open rtcp-processing example page

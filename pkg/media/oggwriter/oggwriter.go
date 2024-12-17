@@ -12,7 +12,7 @@ import (
 
 	"github.com/pion/rtp"
 	"github.com/pion/rtp/codecs"
-	"github.com/z1rachl/webrtc/v4/internal/util"
+	"gitlab.cubicmedia.cloud/cubic-ai/CA/webrtc/v4/internal/util"
 )
 
 const (

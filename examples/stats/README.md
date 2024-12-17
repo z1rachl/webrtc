@@ -7,7 +7,7 @@ during a session and why.
 ## Instructions
 ### Download stats
 ```
-go install github.com/z1rachl/webrtc/v4/examples/stats@latest
+go install gitlab.cubicmedia.cloud/cubic-ai/CA/webrtc/v4/examples/stats@latest
 ```
 
 ### Open stats example page

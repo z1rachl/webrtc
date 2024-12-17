@@ -12,7 +12,7 @@ import (
 	"os"
 
 	"github.com/pion/logging"
-	"github.com/z1rachl/webrtc/v4"
+	"gitlab.cubicmedia.cloud/cubic-ai/CA/webrtc/v4"
 )
 
 // Everything below is the Pion WebRTC API! Thanks for using it ❤️.

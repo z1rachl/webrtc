@@ -9,7 +9,7 @@ import (
 	"time"
 
 	"github.com/pion/rtp"
-	"github.com/z1rachl/webrtc/v4/pkg/media"
+	"gitlab.cubicmedia.cloud/cubic-ai/CA/webrtc/v4/pkg/media"
 )
 
 // SampleBuilder buffers packets until media frames are complete.

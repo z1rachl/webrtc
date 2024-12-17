@@ -6,7 +6,7 @@ users to override this and process messages however they want.
 ## Instructions
 ### Download custom-logger
 ```
-go install github.com/z1rachl/webrtc/v4/examples/custom-logger@latest
+go install gitlab.cubicmedia.cloud/cubic-ai/CA/webrtc/v4/examples/custom-logger@latest
 ```
 
 ### Run custom-logger

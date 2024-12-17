@@ -4,7 +4,7 @@ rtp-forwarder is a simple application that shows how to forward your webcam/micr
 ## Instructions
 ### Download rtp-forwarder
 ```
-go install github.com/z1rachl/webrtc/v4/examples/rtp-forwarder@latest
+go install gitlab.cubicmedia.cloud/cubic-ai/CA/webrtc/v4/examples/rtp-forwarder@latest
 ```
 
 ### Open rtp-forwarder example page

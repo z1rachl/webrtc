@@ -1,4 +1,4 @@
-module github.com/z1rachl/webrtc/v4
+module gitlab.cubicmedia.cloud/cubic-ai/CA/webrtc/v4
 
 go 1.20
 

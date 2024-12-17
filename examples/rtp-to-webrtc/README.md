@@ -6,7 +6,7 @@ With this example we have pre-made GStreamer and ffmpeg pipelines, but you can u
 ## Instructions
 ### Download rtp-to-webrtc
 ```
-go install github.com/z1rachl/webrtc/v4/examples/rtp-to-webrtc@latest
+go install gitlab.cubicmedia.cloud/cubic-ai/CA/webrtc/v4/examples/rtp-to-webrtc@latest
 ```
 
 ### Open jsfiddle example page
