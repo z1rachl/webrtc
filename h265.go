@@ -5,6 +5,7 @@ package webrtc
 
 import (
 	"bytes"
+	"fmt"
 )
 
 // H265Payloader payloads H265 packets
@@ -68,6 +69,7 @@ func (p *H265Payloader) Payload(mtu uint16, payload []byte) [][]byte {
 
 		println(len(nalu), mtu)
 		if naluType == vpsNALUType || naluType == spsNALUType || naluType == ppsNALUType {
+			fmt.Printf("OUT naluType: %d; set=%v", naluType, nalu[:8])
 			payloads = append(payloads, nalu)
 			return
 		}
@@ -118,6 +120,9 @@ func (p *H265Payloader) Payload(mtu uint16, payload []byte) [][]byte {
 			}
 
 			copy(out[fuaHeaderSize:], nalu[naluIndex:naluIndex+currentFragmentSize])
+
+			fmt.Printf("OUT naluType: %d; set=%v", naluType, nalu[:8])
+
 			payloads = append(payloads, out)
 
 			naluRemaining -= currentFragmentSize
