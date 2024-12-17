@@ -111,7 +111,7 @@ func (p *H265Payloader) Payload(mtu uint16, payload []byte) [][]byte {
 			currentFragmentSize := min(maxFragmentSize, naluRemaining)
 			out := make([]byte, fuaHeaderSize+currentFragmentSize)
 
-			out[0] = fuaNALUType >> 1
+			out[0] = 98
 			out[1] = nalu[1]
 			out[2] = naluType
 
