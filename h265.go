@@ -118,6 +118,11 @@ func (p *H265Payloader) Payload(mtu uint16, payload []byte) [][]byte {
 			p.vpsNalu = nil
 		}
 
+		out := make([]byte, len(nalu))
+		copy(out, nalu)
+		payloads = append(payloads, out)
+		return
+
 		// Single NALU
 		if len(nalu) <= int(mtu) {
 			out := make([]byte, len(nalu))
