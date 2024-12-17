@@ -67,15 +67,17 @@ func (p *H265Payloader) Payload(mtu uint16, payload []byte) [][]byte {
 
 		naluType := (nalu[0] >> 1) & 0x3f
 
-		println(len(nalu), mtu)
 		if naluType == vpsNALUType || naluType == spsNALUType || naluType == ppsNALUType {
-			fmt.Printf("OUT naluType: %d; set=%v\n", naluType, nalu[:8])
+			fmt.Printf("OUT naluType: %d/%d; set=%v\n", naluType, naluType, nalu[:8])
+
 			payloads = append(payloads, nalu)
 			return
 		}
 
 		// Single NALU
 		if len(nalu) <= int(mtu) {
+			fmt.Printf("OUT naluType: %d/%d; set=%v\n", naluType, naluType, nalu[:8])
+
 			out := make([]byte, len(nalu))
 			copy(out, nalu)
 			payloads = append(payloads, out)
@@ -121,7 +123,7 @@ func (p *H265Payloader) Payload(mtu uint16, payload []byte) [][]byte {
 
 			copy(out[fuaHeaderSize:], nalu[naluIndex:naluIndex+currentFragmentSize])
 
-			fmt.Printf("OUT naluType: %d; set=%v\n", naluType, nalu[:8])
+			fmt.Printf("OUT naluType: %d/%d; set=%v\n", fuaNALUType, naluType, nalu[:8])
 
 			payloads = append(payloads, out)
 
