@@ -6,6 +6,7 @@ package webrtc
 import (
 	"fmt"
 	"log"
+	"runtime/debug"
 	"strings"
 
 	"gitlab.cubicmedia.cloud/cubic-ai/CA/webrtc/v4/internal/fmtp"
@@ -109,6 +110,7 @@ func codecParametersFuzzySearch(needle RTPCodecParameters, haystack []RTPCodecPa
 	needleFmtp := fmtp.Parse(needle.RTPCodecCapability.MimeType, needle.RTPCodecCapability.SDPFmtpLine)
 
 	if strings.Contains(needle.RTPCodecCapability.MimeType, "265") {
+		debug.PrintStack()
 		log.Printf("needle: %v", needle)
 	}
 
