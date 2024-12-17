@@ -5,6 +5,7 @@ package webrtc
 
 import (
 	"fmt"
+	"log"
 	"strings"
 
 	"github.com/z1rachl/webrtc/v4/internal/fmtp"
@@ -106,6 +107,8 @@ const (
 // Returns codecMatchExact, codecMatchPartial, or codecMatchNone
 func codecParametersFuzzySearch(needle RTPCodecParameters, haystack []RTPCodecParameters) (RTPCodecParameters, codecMatchType) {
 	needleFmtp := fmtp.Parse(needle.RTPCodecCapability.MimeType, needle.RTPCodecCapability.SDPFmtpLine)
+
+	log.Print("!!!!!!!!")
 
 	// First attempt to match on MimeType + SDPFmtpLine
 	for _, c := range haystack {
