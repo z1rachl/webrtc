@@ -13,7 +13,7 @@ import (
 
 	"github.com/pion/sdp/v3"
 	"github.com/stretchr/testify/assert"
-	"github.com/z1rachl/webrtc/v4/pkg/media"
+	"gitlab.cubicmedia.cloud/cubic-ai/CA/webrtc/v4/pkg/media"
 )
 
 func TestSetRTPParameters(t *testing.T) {

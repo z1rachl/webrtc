@@ -16,9 +16,9 @@ import (
 	"time"
 
 	"github.com/pion/randutil"
-	"github.com/z1rachl/webrtc/v4"
-	"github.com/z1rachl/webrtc/v4/pkg/media"
-	"github.com/z1rachl/webrtc/v4/pkg/media/ivfreader"
+	"gitlab.cubicmedia.cloud/cubic-ai/CA/webrtc/v4"
+	"gitlab.cubicmedia.cloud/cubic-ai/CA/webrtc/v4/pkg/media"
+	"gitlab.cubicmedia.cloud/cubic-ai/CA/webrtc/v4/pkg/media/ivfreader"
 )
 
 var peerConnection *webrtc.PeerConnection //nolint

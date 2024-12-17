@@ -17,7 +17,7 @@ import (
 	"strings"
 	"syscall/js"
 
-	"github.com/z1rachl/webrtc/v4"
+	"gitlab.cubicmedia.cloud/cubic-ai/CA/webrtc/v4"
 )
 
 func main() {

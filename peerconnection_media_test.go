@@ -29,8 +29,8 @@ import (
 	"github.com/pion/transport/v3/vnet"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
-	"github.com/z1rachl/webrtc/v4/internal/util"
-	"github.com/z1rachl/webrtc/v4/pkg/media"
+	"gitlab.cubicmedia.cloud/cubic-ai/CA/webrtc/v4/internal/util"
+	"gitlab.cubicmedia.cloud/cubic-ai/CA/webrtc/v4/pkg/media"
 )
 
 var (

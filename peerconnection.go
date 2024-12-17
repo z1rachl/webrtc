@@ -25,8 +25,8 @@ import (
 	"github.com/pion/rtcp"
 	"github.com/pion/sdp/v3"
 	"github.com/pion/srtp/v3"
-	"github.com/z1rachl/webrtc/v4/internal/util"
-	"github.com/z1rachl/webrtc/v4/pkg/rtcerr"
+	"gitlab.cubicmedia.cloud/cubic-ai/CA/webrtc/v4/internal/util"
+	"gitlab.cubicmedia.cloud/cubic-ai/CA/webrtc/v4/pkg/rtcerr"
 )
 
 // PeerConnection represents a WebRTC connection that establishes a

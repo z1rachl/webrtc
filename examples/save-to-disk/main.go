@@ -19,10 +19,10 @@ import (
 
 	"github.com/pion/interceptor"
 	"github.com/pion/interceptor/pkg/intervalpli"
-	"github.com/z1rachl/webrtc/v4"
-	"github.com/z1rachl/webrtc/v4/pkg/media"
-	"github.com/z1rachl/webrtc/v4/pkg/media/ivfwriter"
-	"github.com/z1rachl/webrtc/v4/pkg/media/oggwriter"
+	"gitlab.cubicmedia.cloud/cubic-ai/CA/webrtc/v4"
+	"gitlab.cubicmedia.cloud/cubic-ai/CA/webrtc/v4/pkg/media"
+	"gitlab.cubicmedia.cloud/cubic-ai/CA/webrtc/v4/pkg/media/ivfwriter"
+	"gitlab.cubicmedia.cloud/cubic-ai/CA/webrtc/v4/pkg/media/oggwriter"
 )
 
 func saveToDisk(i media.Writer, track *webrtc.TrackRemote) {

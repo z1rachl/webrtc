@@ -16,7 +16,7 @@ import (
 	"github.com/pion/randutil"
 	"github.com/pion/rtcp"
 	"github.com/pion/rtp"
-	"github.com/z1rachl/webrtc/v4/internal/util"
+	"gitlab.cubicmedia.cloud/cubic-ai/CA/webrtc/v4/internal/util"
 )
 
 type trackEncoding struct {

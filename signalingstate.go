@@ -7,7 +7,7 @@ import (
 	"fmt"
 	"sync/atomic"
 
-	"github.com/z1rachl/webrtc/v4/pkg/rtcerr"
+	"gitlab.cubicmedia.cloud/cubic-ai/CA/webrtc/v4/pkg/rtcerr"
 )
 
 type stateChangeOp int

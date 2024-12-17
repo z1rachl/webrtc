@@ -22,9 +22,9 @@ import (
 	"github.com/pion/transport/v3/test"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
-	"github.com/z1rachl/webrtc/v4/internal/util"
-	"github.com/z1rachl/webrtc/v4/pkg/media"
-	"github.com/z1rachl/webrtc/v4/pkg/rtcerr"
+	"gitlab.cubicmedia.cloud/cubic-ai/CA/webrtc/v4/internal/util"
+	"gitlab.cubicmedia.cloud/cubic-ai/CA/webrtc/v4/pkg/media"
+	"gitlab.cubicmedia.cloud/cubic-ai/CA/webrtc/v4/pkg/rtcerr"
 )
 
 func sendVideoUntilDone(done <-chan struct{}, t *testing.T, tracks []*TrackLocalStaticSample) {

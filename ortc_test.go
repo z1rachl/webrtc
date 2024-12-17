@@ -7,7 +7,7 @@
 package webrtc
 
 import (
-	"github.com/z1rachl/webrtc/v4/internal/util"
+	"gitlab.cubicmedia.cloud/cubic-ai/CA/webrtc/v4/internal/util"
 )
 
 type testORTCStack struct {

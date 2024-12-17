@@ -28,8 +28,8 @@ import (
 	"github.com/pion/transport/v3/test"
 	"github.com/pion/transport/v3/vnet"
 	"github.com/stretchr/testify/assert"
-	"github.com/z1rachl/webrtc/v4/internal/util"
-	"github.com/z1rachl/webrtc/v4/pkg/rtcerr"
+	"gitlab.cubicmedia.cloud/cubic-ai/CA/webrtc/v4/internal/util"
+	"gitlab.cubicmedia.cloud/cubic-ai/CA/webrtc/v4/pkg/rtcerr"
 )
 
 // newPair creates two new peer connections (an offerer and an answerer) using

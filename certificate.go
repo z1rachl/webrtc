@@ -21,7 +21,7 @@ import (
 	"time"
 
 	"github.com/pion/dtls/v3/pkg/crypto/fingerprint"
-	"github.com/z1rachl/webrtc/v4/pkg/rtcerr"
+	"gitlab.cubicmedia.cloud/cubic-ai/CA/webrtc/v4/pkg/rtcerr"
 )
 
 // Certificate represents a x509Cert used to authenticate WebRTC communications.

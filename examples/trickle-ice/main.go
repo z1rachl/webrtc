@@ -10,7 +10,7 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/z1rachl/webrtc/v4"
+	"gitlab.cubicmedia.cloud/cubic-ai/CA/webrtc/v4"
 	"golang.org/x/net/websocket"
 )
 

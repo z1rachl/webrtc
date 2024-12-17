@@ -18,7 +18,7 @@ import (
 	"github.com/pion/rtp"
 	"github.com/pion/transport/v3/test"
 	"github.com/stretchr/testify/assert"
-	"github.com/z1rachl/webrtc/v4/pkg/media"
+	"gitlab.cubicmedia.cloud/cubic-ai/CA/webrtc/v4/pkg/media"
 )
 
 // E2E test of the features of Interceptors

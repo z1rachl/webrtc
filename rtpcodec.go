@@ -8,7 +8,7 @@ import (
 	"log"
 	"strings"
 
-	"github.com/z1rachl/webrtc/v4/internal/fmtp"
+	"gitlab.cubicmedia.cloud/cubic-ai/CA/webrtc/v4/internal/fmtp"
 )
 
 // RTPCodecType determines the type of a codec

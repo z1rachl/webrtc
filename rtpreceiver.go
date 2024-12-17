@@ -16,7 +16,7 @@ import (
 	"github.com/pion/interceptor"
 	"github.com/pion/rtcp"
 	"github.com/pion/srtp/v3"
-	"github.com/z1rachl/webrtc/v4/internal/util"
+	"gitlab.cubicmedia.cloud/cubic-ai/CA/webrtc/v4/internal/util"
 )
 
 // trackStreams maintains a mapping of RTP/RTCP streams to a specific track

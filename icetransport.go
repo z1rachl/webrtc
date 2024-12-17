@@ -15,8 +15,8 @@ import (
 
 	"github.com/pion/ice/v4"
 	"github.com/pion/logging"
-	"github.com/z1rachl/webrtc/v4/internal/mux"
-	"github.com/z1rachl/webrtc/v4/internal/util"
+	"gitlab.cubicmedia.cloud/cubic-ai/CA/webrtc/v4/internal/mux"
+	"gitlab.cubicmedia.cloud/cubic-ai/CA/webrtc/v4/internal/util"
 )
 
 // ICETransport allows an application access to information about the ICE
