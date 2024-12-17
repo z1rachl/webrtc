@@ -67,6 +67,8 @@ func (p *H265Payloader) Payload(mtu uint16, payload []byte) [][]byte {
 
 		naluType := (nalu[0] >> 1) & 0x3f
 
+		fmt.Printf("OUT naluType: %d", naluType)
+
 		if naluType == vpsNALUType || naluType == spsNALUType || naluType == ppsNALUType {
 			fmt.Printf("OUT naluType: %d/%d; set=%v\n", naluType, naluType, nalu[:8])
 
