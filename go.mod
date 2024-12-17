@@ -1,6 +1,6 @@
 module gitlab.cubicmedia.cloud/cubic-ai/CA/webrtc/v4
 
-go 1.20
+go 1.21
 
 require (
 	github.com/pion/datachannel v1.5.10
