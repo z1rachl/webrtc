@@ -115,7 +115,7 @@ func codecParametersFuzzySearch(needle RTPCodecParameters, haystack []RTPCodecPa
 	// First attempt to match on MimeType + SDPFmtpLine
 	for _, c := range haystack {
 		if strings.Contains(needle.RTPCodecCapability.MimeType, "265") {
-			log.Printf("needle: %v", c)
+			log.Printf("с: %v", c)
 		}
 
 		cfmtp := fmtp.Parse(c.RTPCodecCapability.MimeType, c.RTPCodecCapability.SDPFmtpLine)
@@ -127,7 +127,7 @@ func codecParametersFuzzySearch(needle RTPCodecParameters, haystack []RTPCodecPa
 	// Fallback to just MimeType
 	for _, c := range haystack {
 		if strings.Contains(needle.RTPCodecCapability.MimeType, "265") {
-			log.Printf("needle: %v", c)
+			log.Printf("с: %v", c)
 		}
 
 		if strings.EqualFold(c.RTPCodecCapability.MimeType, needle.RTPCodecCapability.MimeType) {
