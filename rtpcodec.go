@@ -7,7 +7,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/pion/webrtc/v4/internal/fmtp"
+	"github.com/z1rachl/webrtc/v4/internal/fmtp"
 )
 
 // RTPCodecType determines the type of a codec
