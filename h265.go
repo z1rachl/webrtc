@@ -5,7 +5,6 @@ package webrtc
 
 import (
 	"bytes"
-	"encoding/binary"
 )
 
 // H265Payloader payloads H265 packets
@@ -22,13 +21,6 @@ const (
 	fuaHeaderSize       = 3
 	stapaHeaderSize     = 1
 	stapaNALULengthSize = 2
-
-	naluTypeBitmask   = 0x1F
-	naluRefIdcBitmask = 0x60
-	fuStartBitmask    = 0x80
-	fuEndBitmask      = 0x40
-
-	outputStapAHeader = 0x78
 )
 
 // nolint:gochecknoglobals
@@ -74,45 +66,11 @@ func (p *H265Payloader) Payload(mtu uint16, payload []byte) [][]byte {
 
 		naluType := (nalu[0] >> 1) & 0x3f
 
-		switch {
-		case naluType == vpsNALUType:
-			p.vpsNalu = nalu
-			return
-		case naluType == spsNALUType:
-			p.spsNalu = nalu
-			return
-		case naluType == ppsNALUType:
-			p.ppsNalu = nalu
-			return
-		case p.spsNalu != nil && p.ppsNalu != nil && p.vpsNalu != nil:
-			// Pack current NALU with SPS and PPS as STAP-A
-			vpsLen := make([]byte, 2)
-			binary.BigEndian.PutUint16(vpsLen, uint16(len(p.vpsNalu)))
-
-			spsLen := make([]byte, 2)
-			binary.BigEndian.PutUint16(spsLen, uint16(len(p.spsNalu)))
-
-			ppsLen := make([]byte, 2)
-			binary.BigEndian.PutUint16(ppsLen, uint16(len(p.ppsNalu)))
-
-			stapANalu := []byte{outputStapAHeader}
-			stapANalu = append(stapANalu, vpsLen...)
-			stapANalu = append(stapANalu, p.vpsNalu...)
-			stapANalu = append(stapANalu, spsLen...)
-			stapANalu = append(stapANalu, p.spsNalu...)
-			stapANalu = append(stapANalu, ppsLen...)
-			stapANalu = append(stapANalu, p.ppsNalu...)
-			if len(stapANalu) <= int(mtu) {
-				out := make([]byte, len(stapANalu))
-				copy(out, stapANalu)
-				payloads = append(payloads, out)
-			}
-
-			p.spsNalu = nil
-			p.ppsNalu = nil
-			p.vpsNalu = nil
-		}
 		println(len(nalu), mtu)
+		if naluType == vpsNALUType || naluType == spsNALUType || naluType == ppsNALUType {
+			payloads = append(payloads, nalu)
+			return
+		}
 
 		// Single NALU
 		if len(nalu) <= int(mtu) {
