@@ -75,7 +75,7 @@ func (p *H265Payloader) Payload(mtu uint16, payload []byte) [][]byte {
 			return
 		}
 
-		naluType := nalu[0] & naluTypeBitmask
+		naluType := (nalu[0] >> 1) & 0x3f
 		naluRefIdc := nalu[0] & naluRefIdcBitmask
 
 		println(naluType)
