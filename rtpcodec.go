@@ -108,7 +108,7 @@ const (
 func codecParametersFuzzySearch(needle RTPCodecParameters, haystack []RTPCodecParameters) (RTPCodecParameters, codecMatchType) {
 	needleFmtp := fmtp.Parse(needle.RTPCodecCapability.MimeType, needle.RTPCodecCapability.SDPFmtpLine)
 
-	log.Print("!!!!!!!!!")
+	log.Println("!!!!!!!!!")
 
 	// First attempt to match on MimeType + SDPFmtpLine
 	for _, c := range haystack {
