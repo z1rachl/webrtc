@@ -25,7 +25,7 @@ const (
 
 	sdpAttributeSimulcast = "simulcast"
 
-	rtpOutboundMTU = 6000
+	rtpOutboundMTU = 1200
 
 	rtpPayloadTypeBitmask = 0x7F
 
