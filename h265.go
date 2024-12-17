@@ -14,13 +14,12 @@ type H265Payloader struct {
 }
 
 const (
-	stapaNALUType  = 24
-	fuaNALUType    = 28
-	fubNALUType    = 29
-	spsNALUType    = 7
-	ppsNALUType    = 8
-	audNALUType    = 9
-	fillerNALUType = 12
+	stapaNALUType = 24
+	fuaNALUType   = 28
+	fubNALUType   = 29
+	vpsNALUType   = 32
+	spsNALUType   = 33
+	ppsNALUType   = 34
 
 	fuaHeaderSize       = 2
 	stapaHeaderSize     = 1
@@ -81,7 +80,8 @@ func (p *H265Payloader) Payload(mtu uint16, payload []byte) [][]byte {
 		println(naluType)
 
 		switch {
-		case naluType == audNALUType || naluType == fillerNALUType:
+		case naluType == vpsNALUType:
+			p.vpsNalu = nalu
 			return
 		case naluType == spsNALUType:
 			p.spsNalu = nalu
@@ -89,8 +89,11 @@ func (p *H265Payloader) Payload(mtu uint16, payload []byte) [][]byte {
 		case naluType == ppsNALUType:
 			p.ppsNalu = nalu
 			return
-		case p.spsNalu != nil && p.ppsNalu != nil:
+		case p.spsNalu != nil && p.ppsNalu != nil && p.vpsNalu != nil:
 			// Pack current NALU with SPS and PPS as STAP-A
+			vpsLen := make([]byte, 2)
+			binary.BigEndian.PutUint16(vpsLen, uint16(len(p.vpsNalu)))
+
 			spsLen := make([]byte, 2)
 			binary.BigEndian.PutUint16(spsLen, uint16(len(p.spsNalu)))
 
@@ -98,6 +101,8 @@ func (p *H265Payloader) Payload(mtu uint16, payload []byte) [][]byte {
 			binary.BigEndian.PutUint16(ppsLen, uint16(len(p.ppsNalu)))
 
 			stapANalu := []byte{outputStapAHeader}
+			stapANalu = append(stapANalu, vpsLen...)
+			stapANalu = append(stapANalu, p.vpsNalu...)
 			stapANalu = append(stapANalu, spsLen...)
 			stapANalu = append(stapANalu, p.spsNalu...)
 			stapANalu = append(stapANalu, ppsLen...)
@@ -110,6 +115,7 @@ func (p *H265Payloader) Payload(mtu uint16, payload []byte) [][]byte {
 
 			p.spsNalu = nil
 			p.ppsNalu = nil
+			p.vpsNalu = nil
 		}
 
 		// Single NALU
