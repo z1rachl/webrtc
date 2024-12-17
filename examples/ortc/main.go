@@ -22,7 +22,7 @@ import (
 	"time"
 
 	"github.com/pion/randutil"
-	"github.com/pion/webrtc/v4"
+	"github.com/z1rachl/webrtc/v4"
 )
 
 func main() {

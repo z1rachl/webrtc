@@ -6,8 +6,8 @@ package webrtc
 import (
 	"testing"
 
-	"github.com/pion/webrtc/v4/pkg/rtcerr"
 	"github.com/stretchr/testify/assert"
+	"github.com/z1rachl/webrtc/v4/pkg/rtcerr"
 )
 
 func TestNewSignalingState(t *testing.T) {
