@@ -19,9 +19,7 @@ const (
 	spsNALUType = 33
 	ppsNALUType = 34
 
-	fuaHeaderSize       = 2
-	stapaHeaderSize     = 1
-	stapaNALULengthSize = 2
+	fuaHeaderSize = 3
 )
 
 // nolint:gochecknoglobals
@@ -97,12 +95,13 @@ func (p *H265Payloader) Payload(mtu uint16, payload []byte) [][]byte {
 			out := make([]byte, fuaHeaderSize+currentFragmentSize)
 
 			out[0] = (49 << 1) | (nalu[0]<<7)>>7
-			out[1] = naluType
+			out[1] = nalu[1]
+			out[2] = naluType
 
 			if naluRemaining == naluLength {
-				out[1] |= 1 << 7
+				out[2] |= 1 << 7
 			} else if naluRemaining-currentFragmentSize == 0 {
-				out[1] |= 1 << 6
+				out[2] |= 1 << 6
 			}
 
 			copy(out[fuaHeaderSize:], nalu[naluIndex:naluIndex+currentFragmentSize])
