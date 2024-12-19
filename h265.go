@@ -113,9 +113,5 @@ func (p *H265Payloader) Payload(mtu uint16, payload []byte) [][]byte {
 		}
 	})
 
-	for _, p := range payloads {
-		fmt.Printf("OUT nal=%v\n", p[:16])
-	}
-
 	return payloads
 }
