@@ -19,7 +19,7 @@ const (
 	spsNALUType = 33
 	ppsNALUType = 34
 
-	fuaHeaderSize       = 3
+	fuaHeaderSize       = 2
 	stapaHeaderSize     = 1
 	stapaNALULengthSize = 2
 )
@@ -82,21 +82,8 @@ func (p *H265Payloader) Payload(mtu uint16, payload []byte) [][]byte {
 			return
 		}
 
-		// FU-A
 		maxFragmentSize := int(mtu) - fuaHeaderSize
 
-		// The FU payload consists of fragments of the payload of the fragmented
-		// NAL unit so that if the fragmentation unit payloads of consecutive
-		// FUs are sequentially concatenated, the payload of the fragmented NAL
-		// unit can be reconstructed.  The NAL unit type octet of the fragmented
-		// NAL unit is not included as such in the fragmentation unit payload,
-		// 	but rather the information of the NAL unit type octet of the
-		// fragmented NAL unit is conveyed in the F and NRI fields of the FU
-		// indicator octet of the fragmentation unit and in the type field of
-		// the FU header.  An FU payload MAY have any number of octets and MAY
-		// be empty.
-
-		// According to the RFC, the first octet is skipped due to redundant information
 		naluIndex := 1
 		naluLength := len(nalu) - naluIndex
 		naluRemaining := naluLength
@@ -109,19 +96,16 @@ func (p *H265Payloader) Payload(mtu uint16, payload []byte) [][]byte {
 			currentFragmentSize := min(maxFragmentSize, naluRemaining)
 			out := make([]byte, fuaHeaderSize+currentFragmentSize)
 
-			out[0] = 98
-			out[1] = nalu[1]
-			out[2] = naluType
+			out[0] = nalu[0] & (49<<1 | 1)
+			out[1] = naluType
 
 			if naluRemaining == naluLength {
-				out[2] |= 1 << 7
+				out[1] |= 1 << 7
 			} else if naluRemaining-currentFragmentSize == 0 {
-				out[2] |= 1 << 6
+				out[1] |= 1 << 6
 			}
 
 			copy(out[fuaHeaderSize:], nalu[naluIndex:naluIndex+currentFragmentSize])
-
-			fmt.Printf("OUT naluType: %d/%d; set=%v\n", fuaNALUType, naluType, out[:8])
 
 			payloads = append(payloads, out)
 
